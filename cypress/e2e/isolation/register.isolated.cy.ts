@@ -8,10 +8,12 @@ import { registerPage } from "../../pages/registerPageObject"
 describe('register page tests in isolation', () => {
     beforeEach(() => {
         cy.visit('/register')
+        cy.get('h2').should('have.text', 'Register')
     })
 
     it('should successfully register', () => {
         // given
+        cy.percySnapshot('Full register page')
         const user = getRandomUser()
         signUpMocks.success()
 

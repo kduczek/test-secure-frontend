@@ -5,9 +5,10 @@ import { usersMocks } from "../../mocks/getAllUsers"
 import { loginMocks } from "../../mocks/postSignIn"
 import { loginPage } from "../../pages/LoginPageClass"
 
-describe('login page tests', () => {
+describe('login page tests in isolation', () => {
   beforeEach(() => {
     cy.visit('')
+    cy.get('h2').should('have.text', 'Login')
   })
 
   it('should successfully login', () => {
@@ -15,6 +16,7 @@ describe('login page tests', () => {
     const user = getRandomUser()
     loginMocks.success(user)
     usersMocks.success()
+    cy.percySnapshot('Full login page')
 
     // when
     loginPage.attemptLogin(user.username, user.password)

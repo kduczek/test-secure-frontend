@@ -8,6 +8,10 @@ jobs:
     container:
       image: cypress/browsers:node-20.13.1-chrome-125.0.6422.60-1-ff-126.0-edge-125.0.2535.51-1
       options: --user 1001
+    strategy:
+      fail-fast: false
+      matrix:
+        containers: [1, 2] 
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
@@ -24,9 +28,12 @@ jobs:
           browser: chrome
           spec: cypress/e2e/isolation/**
           command-prefix: 'percy exec -- npx'
+          record: true
+          parallel: true
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
       - uses: actions/upload-artifact@v4
         if: failure()

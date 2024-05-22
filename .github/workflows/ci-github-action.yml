@@ -23,6 +23,10 @@ jobs:
           wait-on-timeout: 60
           browser: chrome
           spec: cypress/e2e/isolation/**
+          command-prefix: 'percy exec -- npx'
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
 
       - uses: actions/upload-artifact@v4
         if: failure()

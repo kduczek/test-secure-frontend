@@ -13,6 +13,7 @@ describe('register page tests in isolation', () => {
 
     it('should successfully register', () => {
         // given
+        cy.percySnapshot('Full register page')
         const user = getRandomUser()
         signUpMocks.success()
 

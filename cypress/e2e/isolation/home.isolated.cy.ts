@@ -13,6 +13,7 @@ describe('home page tests in isolation', () => {
         cy.get('li').each(($row, i) => {
             expect($row).to.contain.text(`${users[i].firstName} ${users[i].lastName}`)
         })
+        cy.percySnapshot('Full home page')
     })
 
 })

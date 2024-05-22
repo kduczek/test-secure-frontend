@@ -13,8 +13,10 @@ describe('home page tests in isolation', () => {
     })
 
     it('should correctly autofill user data', () => {
+        // then
         // @ts-ignore
         editPage.verifyAutocompletion(userToEdit)
+        cy.percySnapshot('Full edit page')
     })
 
 })

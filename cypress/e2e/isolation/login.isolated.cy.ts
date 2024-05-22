@@ -16,6 +16,7 @@ describe('login page tests in isolation', () => {
     const user = getRandomUser()
     loginMocks.success(user)
     usersMocks.success()
+    cy.percySnapshot('Full login page')
 
     // when
     loginPage.attemptLogin(user.username, user.password)

@@ -24,5 +24,11 @@ describe('login page tests in isolation', () => {
     // then
     cy.get('h1').should('contain.text', user.firstName)
   })
+  
+  it('always fails because we want to do so', () => {
+    // then
+
+    cy.get('h3', {timeout: 200}).should('have.text', 'It will fail')
+  })
 
 })

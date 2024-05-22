@@ -1,4 +1,5 @@
 import './commands'
+import './isolationCommands'
 import 'allure-cypress/commands'
 
 beforeEach(() => {

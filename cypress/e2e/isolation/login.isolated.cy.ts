@@ -5,7 +5,7 @@ import { usersMocks } from "../../mocks/getAllUsers"
 import { loginMocks } from "../../mocks/postSignIn"
 import { loginPage } from "../../pages/LoginPageClass"
 
-describe('login page tests', () => {
+describe('login page tests in isolation', () => {
   beforeEach(() => {
     cy.visit('')
   })

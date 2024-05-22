@@ -13,6 +13,13 @@ export const getRandomUser = (): User => {
     }
 }
 
+export const getRandomUserWithFirstName = (firstName: string): User => {
+    return {
+        ...getRandomUser(),
+        firstName: firstName
+    }
+}
+
 export const getRandomUserWithUsername = (username: string): User => {
     return {
         ...getRandomUser(),
